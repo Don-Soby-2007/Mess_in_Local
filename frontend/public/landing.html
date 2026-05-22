@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mess_in_Local | Discover Local Home-Cooked Kitchens</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#002113",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#10b981",
+                        "secondary-fixed": "#c3ecd7",
+                        "surface-container-high": "#dde9ff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "inverse-surface": "#233144",
+                        "primary": "#006c49",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#002115",
+                        "on-surface": "#0d1c2f",
+                        "secondary-fixed-dim": "#a8cfbc",
+                        "primary-fixed": "#6ffbbe",
+                        "tertiary-container": "#fc7c78",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "inverse-primary": "#4edea3",
+                        "background": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-container": "#476c5b",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#3c4a42",
+                        "tertiary": "#a43a3a",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-secondary-fixed-variant": "#294e3f",
+                        "secondary": "#416656",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-variant": "#d5e3fd",
+                        "surface-container-highest": "#d5e3fd",
+                        "surface-container": "#e6eeff",
+                        "on-background": "#0d1c2f",
+                        "surface-tint": "#006c49",
+                        "outline-variant": "#bbcabf",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#711419",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#c3ecd7",
+                        "surface-dim": "#ccdbf4",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#410005",
+                        "outline": "#6c7a71",
+                        "on-primary-container": "#00422b",
+                        "surface": "#f8f9ff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Epilogue"],
+                        "label-md": ["Manrope"],
+                        "headline-xl": ["Epilogue"],
+                        "headline-xl-mobile": ["Epilogue"],
+                        "headline-lg": ["Epilogue"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .asymmetric-collage img:nth-child(1) { transform: rotate(-2deg); }
+        .asymmetric-collage img:nth-child(2) { transform: rotate(3deg) translateY(40px); }
+        .asymmetric-collage img:nth-child(3) { transform: rotate(-1deg) translateX(-20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md dark:bg-surface-container/70 border-b border-secondary-fixed/30 dark:border-outline-variant/30">
+<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Mess_in_Local</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed font-semibold border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">Directory</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Producers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Community</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center gap-xs px-md py-sm bg-primary text-white rounded-full font-label-md hover:scale-[1.02] active:scale-95 transition-all shadow-md">
+                    Join Now
+                </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-xl overflow-x-hidden">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-xl grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+<div class="lg:col-span-6 space-y-lg">
+<div class="space-y-md">
+<span class="inline-block px-md py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-md">Verified Kitchens Only</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Ditch the restaurants.<br/><span class="text-primary">Discover local home-cooked kitchens.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Experience the warmth of authentic, home-made meals prepared with organic ingredients from your neighborhood’s finest home chefs.</p>
+</div>
+<div class="relative group max-w-lg">
+<div class="absolute -inset-1 bg-primary/20 rounded-2xl blur-xl group-focus-within:bg-primary/40 transition-all duration-300"></div>
+<div class="relative flex items-center bg-white rounded-xl shadow-lg p-2 border border-outline-variant/30">
+<span class="material-symbols-outlined ml-4 text-on-surface-variant">search</span>
+<input class="flex-1 border-none focus:ring-0 font-body-md text-on-surface placeholder:text-on-surface-variant/60 px-md py-4 rounded-lg" placeholder="Search by cuisine, neighborhood, or chef..." type="text"/>
+<button class="bg-primary text-white px-xl py-4 rounded-lg font-label-md hover:brightness-110 transition-all">Explore</button>
+</div>
+</div>
+<div class="flex items-center gap-lg pt-md">
+<div class="flex -space-x-3">
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Close-up portrait of a diverse female home chef smiling warmly in a bright, modern kitchen setting. High-end lifestyle photography with soft, natural lighting and an organic, high-key aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmZK1DXIgynTsTibFREfVCJpmFscm_TNeSOODt3HJgCWlw_BYJh4JVUS1A7r71PEqc11xIl-pHSE2ozadsN0DQtFz6SIh_AaXItPPJRwZfNsLxW4VpszWGU4X04gVzIBu00F4dpw23UtOHdjm2VGYkPaCt7PI8PWiI1zO8xjoiQkj7FkVH886rNIJVdOtMy5nAcIBWMaK_4dWDcvWajTsYKiVFObtowMSxPNyXQgouP7Y_z4PQ9kN2dvkTIlYAkpEUQBVXxHsKdsnP"/>
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Portrait of a male chef with a friendly expression, captured in a clean, minimalist studio environment. The lighting is diffused and premium, emphasizing a sense of community and artisanal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpjyczH5MfEF-vnbWElUvRo78qRJpP5ZUZpeJZk3ln7RapY5b4PdlbKFRuzLqzWU2JGfw-mqjy53A6K-cJfIImF1qm3qe7CgdOHdkED7xPqvbxsIDtWGrSJOQjwhAOWRyJQ4gN65pFmlMbrANJyL2MjF-ADiUV8w7Of2urKatHvC-VPxpx_ABF746rE9YzhxFpnO_qQen0Np50iZKQDun-c16iZfLNvsqLK4eQKkjqy3Rcd16yILiTxXAq31ZihWN-SsCuyr9grocF"/>
+<img class="w-12 h-12 rounded-full border-2 border-white object-cover" data-alt="Candid headshot of a creative professional woman in a serene, plant-filled domestic kitchen. The aesthetic is modern organic with soft shadows and a palette of sage greens and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVXJICz0vao6_vj7k9essgbQaxbSstUL-SM1GOKD8_H3ckOsa8wDYc-IZ2Ycje60LIUFE495CtEYGAYOrjLgUIO7zYIHIyyNApSoMDOFrWJWOzG7Db3aUMSPbfZrEjvgYtukR_PHFYc-r12_vYMniRweo9dpt8aB6AjSHaUvXcVAOr6k2lu3VXOxkMgO5j4D3Ipog_Xjr-q9l-_BOAb6X3B-fJOdIiN-Z0-BMY5WGHb1hFm0fHes1tdTVwp_qRhHHjIpOf9airnfA"/>
+<div class="w-12 h-12 rounded-full border-2 border-white bg-primary-container flex items-center justify-center text-white text-xs font-bold">+142</div>
+</div>
+<div class="text-on-surface-variant">
+<p class="font-bold text-on-surface">142+ Messes Near You</p>
+<p class="text-sm">In your local community</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 relative h-[600px] hidden lg:block">
+<div class="asymmetric-collage absolute inset-0 flex items-center justify-center">
+<div class="relative w-full h-full">
+<img class="absolute top-0 left-0 w-64 h-80 object-cover rounded-2xl shadow-xl z-10" data-alt="A top-down editorial shot of a vibrant, organic vegetable bowl with fresh greens and heirloom tomatoes on a handcrafted ceramic plate. The lighting is soft morning light in a minimalist kitchen, creating a premium and appetizing visual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWSeKktedcnFtnLqKMKmXuHpNTzJ2uHxf-NEEAK9AXsOyoUAky3vyi1JKAfFyr7isbYmPdUh0WAULu4fp-3IEnsXuvc98u_l2NVRmrB9bZC2wQgh4Z-YT_ywd2QtSIRChA8UWC3K2dLCjMVgGAHG1feTkRY1KJIs6zcarx0MyJg_3Z3t3dU6DDU6tWwyXzINquZoDMg4NvBo_rnVl_Li77zRTh3xo1mVt05KuQKdMq97Epgik-UFnR1tlBuR4u2UKjPFy5IqujcBO5"/>
+<img class="absolute top-20 right-0 w-72 h-96 object-cover rounded-2xl shadow-2xl z-20" data-alt="A professional home chef expertly plating a traditional family meal in a sunlit, modern kitchen. The scene captures authentic movement and artisanal care, with soft-focus backgrounds and warm, high-end tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMVvxMpX-VrXKL4yZariRpRBLm0ShSLjqA4V0Sk2qtqFiP5560YzwihC9muBk2Z2gE0nXjAYJmdq55w7NPRmNzCgHjFUk_7BuP5bZDxBM9rzWgta03DHbQZGeRPpz4WZrkOd7xw1EXvkDWHMXWAWNUfIfrTwRj4sWEkptY7DsUy8e52G0NPCZxUBDXz8OpMozKxKKBx6YgAgIPCsx2v1FQleVERrxlCWQsATDbw0Snqp6ZGBtnAn022IqcLnv5NXyZ08IPQ4O0hrwa"/>
+<img class="absolute bottom-0 left-20 w-64 h-80 object-cover rounded-2xl shadow-xl z-30" data-alt="High-detail close-up of fresh, raw organic ingredients including herbs and spices on a white marble countertop. The aesthetic is clean, minimalist, and luxury organic, featuring emerald green and sage accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH2a0-ZZHYfkTM9LXJQRGADSeeX76Z4nUnUEU3PuVdgNKNYLdBVN3_08-1tsmiHcYWNWwQyV1PsWsfHn2qVOvBZZt8ceU_XyPW5vMbQJOlBEixsanhp3S0WCYJD8jBC6ggv2AJxkXQk8erUVwuPquGLgR_sM7_oLGrOENhs8i2Im-w70FNTufbsE5Qb1zM_HRvYC8Kluwp5WDityehEQeWO8NQYAjDcJ0Yy6eMiAEuox3o2DwDh7Q--8LnLWniO7gXbrMr3WaMYKGu"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="bg-secondary-fixed/10 py-md mb-lg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-wrap gap-sm items-center">
+<span class="font-label-md text-on-surface-variant mr-md">Filter by:</span>
+<button class="px-md py-2 bg-primary text-white rounded-full font-label-md shadow-sm transition-all">Open Now</button>
+<button class="px-md py-2 bg-secondary-container text-on-secondary-container rounded-full font-label-md hover:bg-secondary-fixed transition-all">Monthly Subscription</button>
+<button class="px-md py-2 bg-secondary-container text-on-secondary-container rounded-full font-label-md hover:bg-secondary-fixed transition-all">Halal</button>
+<button class="px-md py-2 bg-secondary-container text-on-secondary-container rounded-full font-label-md hover:bg-secondary-fixed transition-all">Vegetarian</button>
+<button class="px-md py-2 border border-outline-variant rounded-full font-label-md text-on-surface-variant hover:bg-white transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+                        More Filters
+                    </button>
+</div>
+</div>
+</section>
+<!-- Card Grid -->
+<section class="max-w-container-max mx-auto px-gutter pb-xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Curated Messes</h2>
+<p class="text-on-surface-variant">Top rated home kitchens in your area</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline transition-all">
+                    View all 142 listings
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="fade-in-up bg-white rounded-2xl p-4 border border-secondary-fixed/30 shadow-[0px_4px_20px_rgba(51,65,85,0.08)] group hover:-translate-y-1 transition-all duration-300" style="animation-delay: 0.1s">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Deliciously prepared mediterranean bowl featuring grilled chicken, fresh greens, and hummus on a textured ceramic plate. Minimalist photography with high-end lighting and a focus on organic textures and colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNG_8kJ5GkJcpfR7B-86AAMe623p_RM1toUObccluFqjvm3PXw-RqcKlxa13DGB83CK9fB1E6XFFHR3uMuqL6T48YID8psTWEKAZf4kDrhJcnNaCXp09QmOSa4u31pculAs2VP9pmbJAvb9whqqJ12YQp3kzln6zfu0taQX6k1retKBhF6X-nX2-HCuof32LKDwt2k0B4Ic1NbSIs0DEAijfQP6sg_F-9JZdCZYube2HylnqEWmUZqfMr8CkdVl5UpIUMvayLa_j0V"/>
+<div class="absolute top-3 left-3 px-sm py-1 bg-white/90 backdrop-blur-md rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container pulse-dot"></span>
+<span class="text-xs font-bold text-on-surface">OPEN NOW</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-on-surface">The Organic Hearth</h3>
+<div class="flex items-center gap-xs bg-surface-container-low px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Greenwich Village, NY
+                        </p>
+<div class="flex flex-wrap gap-xs pt-1">
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Organic</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Monthly Subs</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Vegan Opt</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="fade-in-up bg-white rounded-2xl p-4 border border-secondary-fixed/30 shadow-[0px_4px_20px_rgba(51,65,85,0.08)] group hover:-translate-y-1 transition-all duration-300" style="animation-delay: 0.2s">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet fusion meal with vibrant colors, highlighting artisanal plating and fresh, locally sourced ingredients. The photography is clean, bright, and emphasizes the sophisticated yet home-cooked nature of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPmy3XmAYi_KsEICJAztUiEP_66fMhJb9sCCXGHA7X8ch1_LnL9jm9K65ubJx74GBjvHl1Szbxv5k7-36Ko85r_LKw7tNHY-JhremZZhJnORGyTzr-DKJ3C9LE3cJl1yGDPOnzFAxYOUmVm76LFKfCSbzAQMSt_fGe8Yl7R78JfJ9XBzn_Q0-5CDHwZqPMt-TWR3KP5neXmYWO2dvMGPSyzb7YZ7o6SQG5f6mltTVAWhx_c8bwbmpGCMqUXbqwCVA5TOIIcfYbeNu2"/>
+<div class="absolute top-3 left-3 px-sm py-1 bg-white/90 backdrop-blur-md rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container pulse-dot"></span>
+<span class="text-xs font-bold text-on-surface">OPEN NOW</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-on-surface">Chef Maya's Kitchen</h3>
+<div class="flex items-center gap-xs bg-surface-container-low px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.8</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Chelsea, NY
+                        </p>
+<div class="flex flex-wrap gap-xs pt-1">
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Gourmet</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Halal</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Farm-to-Table</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="fade-in-up bg-white rounded-2xl p-4 border border-secondary-fixed/30 shadow-[0px_4px_20px_rgba(51,65,85,0.08)] group hover:-translate-y-1 transition-all duration-300" style="animation-delay: 0.3s">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A lush, colorful salad bowl with avocado, seeds, and fresh garden vegetables in a high-end, bright kitchen setting. The image uses soft-focus effects and a clean white background to emphasize purity and health." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg5zl9bpcHvTlucYz0SoGNvEpcKz4X4hzUF8w8gbT55-3ni8dnOBSrvvTcDvxaXQgBYitBtgkV7japCV2wGBaczlR92bCnH3hKFRq6OMe6_jCDqyAu8uPDiraodrdpd7lry00z5duZwiSN4RdGcHZzFR38g4-C8mqPt-J6MihNw9t0eBhDS_srV-5gAAhBwitvkQpJ-k-fbtbeToGOnRDW8XHyl7HOXQZ-7OH7wIJfGycclwM5yMke9Dc-KkfAKTc4K6ahZMNTzu0l"/>
+<div class="absolute top-3 left-3 px-sm py-1 bg-white/90 backdrop-blur-md rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-error pulse-dot" style="animation: none; background-color: #ba1a1a;"></span>
+<span class="text-xs font-bold text-on-surface">CLOSED</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-on-surface">Roots &amp; Shoots</h3>
+<div class="flex items-center gap-xs bg-surface-container-low px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">5.0</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            Brooklyn Heights, NY
+                        </p>
+<div class="flex flex-wrap gap-xs pt-1">
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Whole Foods</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">No Dairy</span>
+<span class="px-2 py-0.5 bg-secondary-fixed/20 text-on-secondary-fixed-variant text-xs font-bold rounded-full">Subscriptions</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats / Why Us -->
+<section class="max-w-container-max mx-auto px-gutter py-xl">
+<div class="bg-primary-container rounded-[2rem] p-xl text-white flex flex-col md:flex-row justify-between items-center gap-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+<div class="relative z-10 space-y-md md:w-1/2">
+<h2 class="font-headline-lg text-headline-lg">Better for you. Better for the community.</h2>
+<p class="font-body-lg opacity-90">Every meal you purchase from a local mess supports a family in your neighborhood and reduces the carbon footprint of industrial dining.</p>
+<div class="flex gap-md pt-md">
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-lg">94%</span>
+<span class="text-xs font-bold tracking-widest opacity-80 uppercase">Lower Carbon</span>
+</div>
+<div class="w-px h-full bg-white/20"></div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-lg">100%</span>
+<span class="text-xs font-bold tracking-widest opacity-80 uppercase">Community Driven</span>
+</div>
+</div>
+</div>
+<div class="md:w-1/3 relative z-10">
+<button class="w-full py-4 bg-white text-primary rounded-xl font-bold hover:scale-[1.02] transition-transform shadow-xl">Get Started Today</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest w-full py-lg mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center px-gutter max-w-container-max mx-auto gap-lg">
+<div class="space-y-sm">
+<span class="font-headline-lg text-headline-lg text-primary block">Mess_in_Local</span>
+<p class="font-body-md text-on-surface-variant max-w-xs">Cultivating organic community, one home-cooked meal at a time.</p>
+</div>
+<div class="grid grid-cols-2 gap-xl">
+<div class="space-y-sm">
+<p class="font-label-md text-on-surface uppercase tracking-wider">Company</p>
+<div class="flex flex-col gap-xs">
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">Contact</a>
+</div>
+</div>
+<div class="space-y-sm">
+<p class="font-label-md text-on-surface uppercase tracking-wider">Legal</p>
+<div class="flex flex-col gap-xs">
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary underline decoration-transparent hover:decoration-primary transition-all" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-xl pt-md border-t border-secondary-fixed/20 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-body-md text-on-surface-variant text-sm">© 2024 Mess_in_Local. Cultivating organic community.</p>
+<div class="flex gap-md">
+<a class="w-10 h-10 rounded-full bg-secondary-fixed/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-secondary-fixed/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Glass nav scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
